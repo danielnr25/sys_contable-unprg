@@ -147,7 +147,7 @@
                   <input type="date" id="txt_fterminoE" placeholder="Ingrese fecha de termino" class="form-control">
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">Estado</label>
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">ESTADO</label>
                   <select name="" id="txtEstadoE" class="form-control">
                      <option value="ACTIVO">ACTIVO</option>
                      <option value="INACTIVO">INACTIVO</option>

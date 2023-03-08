@@ -139,7 +139,7 @@
    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content bg-default">
          <div class="modal-header">
-            <h5 class="modal-title text-bold text-lg" style="color:#000000;" id="exampleModalLabel">Modificar Usuarios</h5>
+            <h5 class="modal-title text-bold text-lg" style="color:#000000;" id="exampleModalLabel">Modificar Cuenta</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>

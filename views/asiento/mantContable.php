@@ -62,12 +62,14 @@
                            <thead>
                               <tr class="text-md" style="font-weight: 800;">
                                  <th>#</th>
-                                 <th>Usuario</th>
-                                 <th>Año</th>
-                                 <th>Número</th>
-                                 <th>Fecha</th>
-                                 <th>Tipo de Asiento</th>
-                                 <th>Estado</th>
+                                 <th>NÚMERO</th>
+                                 <th>FECHA</th>
+                                 <th>GLOSA</th>
+                                 <th>ESTADO</th>
+                                 <th>TIPO DE ASIENTO</th>
+                                 <th>CONTADOR</th>
+                                 <th>TIPO DE OPERACION</th>
+                                 <th>PERIODO CONTABLE</th>
                                  <th>OPERACIONES</th>
                               </tr>
                            </thead>
@@ -82,10 +84,10 @@
 </div>
 
 <div class="modal fade" id="modalRegistrar" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-lg" role="document">
+   <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content bg-default">
          <div class="modal-header">
-            <h5 class="modal-title text-bold text-lg" style="color:#000000;" id="exampleModalLabel">Registro de Usuarios</h5>
+            <h5 class="modal-title text-bold text-lg" style="color:#000000;" id="exampleModalLabel">Registro de Asiento Contable</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>
@@ -98,36 +100,48 @@
          <div class="modal-body" style="background: #ffffff">
             <div class="row">
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">DNI</label>
-                  <input type="text" id="txt_dni" placeholder="Ingrese DNI" class="form-control" maxlength="8" onkeypress="return soloNumeros(event);">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">NÚMERO</label>
+                  <input type="text" id="txt_numero" class="form-control" maxlength="4" onkeypress="return soloNumeros(event);">
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">APELLIDO PATERNO</label>
-                  <input type="text" id="txt_apepat" placeholder="Ingrese apellido paterno" class="form-control">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">FECHA</label>
+                  <input type="date" id="txt_fecha" placeholder="Ingrese apellido paterno" class="form-control">
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">APELLIDO MATERNO</label>
-                  <input type="text" id="txt_apemat" placeholder="Ingrese apellido materno" class="form-control">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">GLOSA</label>
+                  <input type="text" id="txt_glosa" class="form-control">
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">NOMBRE</label>
-                  <input type="text" id="txt_nombre" placeholder="Ingrese el nombre" class="form-control">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">ESTADO</label>
+                  <select name="" id="txtEstado" class="form-control">
+                     <option value="ACTIVO">ACTIVO</option>
+                     <option value="INACTIVO">INACTIVO</option>
+                  </select>
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">CONTRASEÑA</label>
-                  <input type="password" id="txt_contra" placeholder="Ingrese contraseña" class="form-control">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">TIPO DE ASIENTO</label>
+                  <select class="form-control js-example-basic-single" id="cbm_tipo" style="width: 100%;">
+                  </select>
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">ROL</label>
-                  <select class="form-control js-example-basic-single" id="cbm_rol" style="width: 100%;">
-                     <option value="ADMIN">ADMINISTRADOR</option>
-                     <option value="CONTADOR">OPERADOR</option>
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">CONTADOR</label>
+                  <select class="form-control js-example-basic-single" id="cbm_contador" style="width: 100%;">
+                  </select>
+               </div>
+               <div class="col-6 mt-3">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">TIPO DE OPERACION</label>
+                  <select class="form-control js-example-basic-single" id="cbm_operacion" style="width: 100%;">
+                  </select>
+               </div>
+               <div class="col-6 mt-3">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">PERIODO CONTABLE</label>
+                  <select class="form-control js-example-basic-single" id="cbm_periodo" style="width: 100%;">
                   </select>
                </div>
             </div>
          </div>
          <div class="modal-footer" style="background: #ffffff">
-            <button type="button" class="btn btn-primary btn-sm" onclick="registrarUsuario()"><i class="fa fa-check"></i> Registrar</button>
+            <button type="button" class="btn btn-primary btn-sm" onclick="registrarAsiento()"><i class="fa fa-check"></i> Registrar</button>
             <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"> <i class="fa fa-undo "></i> Cancelar</button>
          </div>
       </div>
@@ -138,7 +152,7 @@
    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content bg-default">
          <div class="modal-header">
-            <h5 class="modal-title text-bold text-lg" style="color:#000000;" id="exampleModalLabel">Modificar Usuarios</h5>
+            <h5 class="modal-title text-bold text-lg" style="color:#000000;" id="exampleModalLabel">Modificar Asiento Contable</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>
@@ -151,37 +165,49 @@
          <div class="modal-body" style="background: #ffffff">
             <div class="row">
                <div class="col-6">
-                  <input type="text" id="id_usuario" hidden>
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">DNI</label>
-                  <input type="text" id="txt_dniE" placeholder="Ingrese DNI" class="form-control" maxlength="8" onkeypress="return soloNumeros(event);" disabled>
+                  <input type="text" id="id" hidden>
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">NÚMERO</label>
+                  <input type="text" id="txt_numeroE" class="form-control" maxlength="4" onkeypress="return soloNumeros(event);">
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">APELLIDO PATERNO</label>
-                  <input type="text" id="txt_apepatE" placeholder="Ingrese apellido paterno" class="form-control">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">FECHA</label>
+                  <input type="date" id="txt_fechaE" placeholder="Ingrese apellido paterno" class="form-control">
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">APELLIDO MATERNO</label>
-                  <input type="text" id="txt_apematE" placeholder="Ingrese apellido materno" class="form-control">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">GLOSA</label>
+                  <input type="text" id="txt_glosaE" class="form-control">
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">NOMBRE</label>
-                  <input type="text" id="txt_nombreE" placeholder="Ingrese el nombre" class="form-control">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">ESTADO</label>
+                  <select name="" id="txtEstadoE" class="form-control">
+                     <option value="ACTIVO">ACTIVO</option>
+                     <option value="INACTIVO">INACTIVO</option>
+                  </select>
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">CONTRASEÑA</label>
-                  <input type="password" id="txt_contraE" placeholder="Ingrese contraseña" class="form-control" disabled>
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">TIPO DE ASIENTO</label>
+                  <select class="form-control js-example-basic-single" id="cbm_tipoE" style="width: 100%;">
+                  </select>
                </div>
                <div class="col-6">
-                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">ROL</label>
-                  <select class="form-control js-example-basic-single" id="cbm_rolE" style="width: 100%;">
-                     <option value="ADMIN">ADMIN</option>
-                     <option value="CONTADOR">CONTADOR</option>
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">CONTADOR</label>
+                  <select class="form-control js-example-basic-single" id="cbm_contadorE" style="width: 100%;">
+                  </select>
+               </div>
+               <div class="col-6 mt-3">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">TIPO DE OPERACION</label>
+                  <select class="form-control js-example-basic-single" id="cbm_operacionE" style="width: 100%;">
+                  </select>
+               </div>
+               <div class="col-6 mt-3">
+                  <label for="" class="text-md" style="color:#000000;font-weight: 700;">PERIODO CONTABLE</label>
+                  <select class="form-control js-example-basic-single" id="cbm_periodoE" style="width: 100%;">
                   </select>
                </div>
             </div>
          </div>
          <div class="modal-footer" style="background: #ffffff">
-            <button type="button" class="btn btn-primary btn-sm" onclick="modificarUsuario()"><i class="fa fa-check"></i> Modificar</button>
+            <button type="button" class="btn btn-primary btn-sm" onclick="modificarAsiento()"><i class="fa fa-check"></i> Modificar</button>
             <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"> <i class="fa fa-undo "></i> Cancelar</button>
          </div>
       </div>
@@ -190,9 +216,14 @@
 
 
 
+
 <script>
-   listarUsuario();
-/*    $(document).ready(function() {
+   listarAsiento();
+   $(document).ready(function() {
       $('.js-example-basic-single').select2();
-   }); */
+   });
+   cargarTipoAsiento();
+   cargarContador();
+   cargarOperacion();
+   cargarPeriodo();
 </script>

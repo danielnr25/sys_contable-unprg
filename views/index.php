@@ -197,7 +197,7 @@ if (!isset($_SESSION['S_IDUSUARIO_SC'])) {
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link" onclick="mostrarContenido('contenido-principal','documento/mantDocs.php')">
+              <a href="#" class="nav-link" onclick="mostrarContenido('contenido-principal','detalle/mantDetalle.php')">
                 <i class="nav-icon fas fa-file-signature"></i>
                 <p>
                   Detalle de Asiento

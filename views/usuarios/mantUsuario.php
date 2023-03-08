@@ -103,15 +103,15 @@
                </div>
                <div class="col-6">
                   <label for="" class="text-md" style="color:#000000;font-weight: 700;">APELLIDO PATERNO</label>
-                  <input type="text" id="txt_apepat" placeholder="Ingrese apellido paterno" class="form-control">
+                  <input type="text" id="txt_apepat" placeholder="Ingrese apellido paterno" class="form-control" onkeypress="return soloLetras(event);">
                </div>
                <div class="col-6">
                   <label for="" class="text-md" style="color:#000000;font-weight: 700;">APELLIDO MATERNO</label>
-                  <input type="text" id="txt_apemat" placeholder="Ingrese apellido materno" class="form-control">
+                  <input type="text" id="txt_apemat" placeholder="Ingrese apellido materno" class="form-control" onkeypress="return soloLetras(event);">
                </div>
                <div class="col-6">
                   <label for="" class="text-md" style="color:#000000;font-weight: 700;">NOMBRE</label>
-                  <input type="text" id="txt_nombre" placeholder="Ingrese el nombre" class="form-control">
+                  <input type="text" id="txt_nombre" placeholder="Ingrese el nombre" class="form-control" onkeypress="return soloLetras(event);">
                </div>
                <div class="col-6">
                   <label for="" class="text-md" style="color:#000000;font-weight: 700;">CONTRASEÑA</label>
